@@ -1,29 +1,135 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Purple
-  Date: 2022-05-02
-  Time: 오전 9:59
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<h1>SamplePage</h1>
-<h2>설정 방법</h2>
-<ul>
-    <li>1. 프로젝트 폴더이름 변경 ex) MES_Woodmilly</li>
-    <li>2. MES_Sample.iml 파일명 변경 ex) MES_Woodmilly.iml 폴더명과 동일하게</li>
-    <li>2-1. out, target폴더 지우기</li>
-    <li>3. artifact설정
-        - Project Structure -> Modules -> 기존 모듈 삭제 -> 현재 프로젝트경로로 다시 생성 -> Name에 1붙은거 지우고 Apply
-        - Artifacts -> 기존 아티팩트 삭제 -> add web exploded -> From Module -> select ok
-    </li>
-    <li>4. Tomcat Edit Configuration -> Deployment에서 아티팩트 삭제 후 다시 추가 -> context "/"으로 바꾸기</li>
-    <li>5. pom.xml파일 우클릭 add maven 후 자동업뎃 안되어있으면 메이븐 업데이트</li>
-    <li>6. 서버 실행 후 main.jsp나오면 성공</li>
-</ul>
-</body>
-</html>
+<%@page contentType="text/html; charset=UTF-8" language="java" %>
+<jsp:include page="layout/top.jsp" />
+<jsp:include page="layout/sidebar.jsp" />
+
+<div class="container">
+    <header>
+        <div class="txt-right">
+            <a href="login.html" class="btn">로그아웃</a>
+        </div>
+    </header>
+
+    <div id="content">
+        <div class="content-header">
+            <p class="title">거래처 정보 관리</p>
+
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                <li>거래처 관리</li>
+                <li>거래처 정보 관리</li>
+            </ol>
+        </div>
+
+        <div class="box box-bg">
+            <form method="GET">
+                <table class="table-input">
+                    <colgroup>
+                        <col width="10%">
+                        <col width="22%">
+                        <col width="10%">
+                        <col width="22%">
+                        <col width="10%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>유형</th>
+                        <td>
+                            <select name="search_kind" class="form-control xs"></select>
+                        </td>
+                        <th>이름</th>
+                        <td><input type="text" name="search_name" class="form-control xs">
+                        </td>
+                        <th>지점명</th>
+                        <td><input type="text" name="search_branch_name" class="form-control xs"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-1 mb-1 txt-right">
+                    <button type="submit" class="btn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        검색하기
+                    </button>
+                </div>
+
+                <div class="flex-content-between mb-1">
+                    <div class="ft-bold">
+                        Total : 00 건
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-success">
+                            <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                            Excel 다운로드
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            등록하기
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table-list full">
+                <colgroup>
+                    <col width="60px">
+                    <col width="60px">
+                    <col width="*">
+                    <col width="100px">
+                    <col width="110px">
+                    <col width="110px">
+                    <col width="100px">
+                    <col width="100px">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>유형</th>
+                    <th>지점명</th>
+                    <th>원장명</th>
+                    <th>연락처1</th>
+                    <th>연락처2</th>
+                    <th>상태</th>
+                    <th>등록일자</th>
+                </tr>
+                </thead>
+                <tbody class="body-scroll">
+                <tr>
+                    <td class="txt-center">asdasd</td>
+                    <td class="txt-center">asdasd</td>
+                    <td>
+                        <a href="popup.html" class="popup">
+                            Link
+                        </a>
+                    </td>
+                    <td class="txt-center"></td>
+                    <td class="txt-center"></td>
+                    <td class="txt-center"></td>
+                    <td class="txt-center">
+                        <div class="label label-success">label</div>
+                    </td>
+                    <td class="text-center">2021.01.01</td>
+                </tr>
+                <tr>
+                    <td class="txt-center">asdasd</td>
+                    <td class="txt-center">asdasd</td>
+                    <td>
+                        <a href="popup.html" class="popup">
+                            Link
+                        </a>
+                    </td>
+                    <td class="txt-center"></td>
+                    <td class="txt-center"></td>
+                    <td class="txt-center"></td>
+                    <td class="txt-center">
+                        <div class="label label-success">label</div>
+                    </td>
+                    <td class="text-center">2021.01.01</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<jsp:include page="layout/bottom.jsp" />
